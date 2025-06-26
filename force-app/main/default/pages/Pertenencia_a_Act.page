@@ -1,0 +1,38 @@
+<apex:page standardController="Contact" recordSetVar="contacts" extensions="MassActPertenencenteAdd">
+
+<apex:sectionHeader title="Agregar Pertenencia a un Actividad"/>
+
+<apex:form >
+
+<apex:pageBlock mode="edit">
+
+
+<apex:pageBlockButtons > 
+
+
+<apex:commandButton action="{!createNewPertenencente}" value="Next"/> 
+
+
+<apex:commandButton action="{!cancel}" value="Cancel"/> 
+
+
+</apex:pageBlockButtons> 
+
+
+<apex:pageBlockSection title="Informacion de Pertenencente">
+
+<apex:inputField id="Actividad" value="{!Pertenencia.Actividad__c}"/> 
+
+<apex:inputField id="D_a_de_finalizaci_n" value="{!Pertenencia.D_a_de_finalizaci_n__c}"/> 
+
+<apex:inputField id="D_a_de_Inicio" value="{!Pertenencia.D_a_de_Inicio__c}"/> 
+
+<apex:inputField id="Estado" value="{!Pertenencia.Estado__c}"/> 
+
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+</apex:form>
+</apex:page>

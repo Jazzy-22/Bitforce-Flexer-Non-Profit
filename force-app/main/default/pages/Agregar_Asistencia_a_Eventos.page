@@ -1,0 +1,80 @@
+<apex:page standardController="Contact" recordSetVar="contacts" extensions="MassActAsistenteEventosAdd">
+
+
+<apex:sectionHeader title="Agregar Asistentes a un Evento"/>
+
+
+<apex:form >
+
+
+<apex:pageBlock mode="edit">
+
+
+<apex:pageBlockButtons > 
+
+
+<apex:commandButton action="{!createNewAsistente}" value="Siguiente"/> 
+
+
+<apex:commandButton action="{!cancel}" value="Cancelar"/> 
+
+
+
+</apex:pageBlockButtons> 
+
+
+
+<apex:pageBlockSection title="Información de Asistencia">
+
+
+
+<apex:inputField id="Evento__c" value="{!Asistencia.Evento__c}"/> 
+
+<apex:inputField id="Fecha_de_Inscripci_n" value="{!Asistencia.Fecha_de_Inscripci_n__c}"/> 
+
+<apex:inputField id="Inscripto" value="{!Asistencia.Inscripto__c}"/> 
+
+<apex:inputField id="Asisti" value="{!Asistencia.Asisti__c}"/> 
+
+<apex:inputField id="Categor_a_de_asistenca" value="{!Asistencia.Categor_a_de_asistenc__c}"/> 
+
+<apex:inputField id="Modo_de_Inscripci_n" value="{!Asistencia.Modo_de_Inscripci_n__c}"/> 
+
+<apex:inputField id="Subtipo_de_Invitado" value="{!Asistencia.Subtipo_de_Invitado__c}"/>
+
+</apex:pageBlockSection>
+
+<apex:pageBlockSection title="Información de Importes">
+
+<apex:inputField id="Moneda_importe" value="{!Asistencia.Moneda_importe__c}"/>
+
+<apex:inputField id="Moneda_otros_importes" value="{!Asistencia.Moneda_otros_importes__c}"/> 
+
+<apex:inputField id="Importe" value="{!Asistencia.Importe__c}"/> 
+
+<apex:inputField id="Otros_importes" value="{!Asistencia.Otros_importes__c}"/>
+
+</apex:pageBlockSection>
+
+<apex:pageBlockSection title="Información de Transporte">
+
+<apex:inputField id="Transporte" value="{!Asistencia.Transporte__c}"/>
+
+<apex:inputField id="Moneda_transporte" value="{!Asistencia.Moneda_transporte__c}"/>
+
+<apex:inputField id="Lugar_de_transporte" value="{!Asistencia.Lugar_de_transporte__c}"/> 
+
+<apex:inputField id="Importe_transporte" value="{!Asistencia.Importe_transporte__c}"/> 
+
+
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+
+
+</apex:form>
+
+
+</apex:page>

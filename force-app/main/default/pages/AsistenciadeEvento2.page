@@ -1,0 +1,52 @@
+<apex:page standardController="Pertenencia_a_Actividades__c" recordSetVar="contacts" extensions="MassActAsistenteAdd2">
+
+
+
+<apex:sectionHeader title="Agregar Asistenes a un Actividad"/>
+
+
+
+<apex:form >
+
+
+
+<apex:pageBlock mode="edit">
+
+
+
+<apex:pageBlockButtons > 
+
+
+
+<apex:commandButton action="{!createNewAsistente}" value="Next"/> 
+
+
+
+<apex:commandButton action="{!cancel}" value="Cancel"/> 
+
+
+
+</apex:pageBlockButtons> 
+
+
+
+<apex:pageBlockSection title="Informacion de Asistencia">
+
+
+<apex:inputField id="Fecha" value="{!Asistencia.Fecha__c}"/> 
+
+
+
+</apex:pageBlockSection>
+
+
+
+</apex:pageBlock>
+
+
+
+</apex:form>
+
+
+
+</apex:page>

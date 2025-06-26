@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Enviaragradecimientoaldonante</name>
+        <label>Enviar agradecimiento al donante</label>
+        <locationX>614</locationX>
+        <locationY>338</locationY>
+        <actionName>Opportunity.Nuevo_donante_individual_OPP_de_nica_vez</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Opportunity.Nuevo_donante_individual_OPP_de_nica_vez</nameSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>OPP_tiene_campania</name>
+        <label>¿OPP tiene campaña?</label>
+        <locationX>605</locationX>
+        <locationY>152</locationY>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>Si_tiene_campania</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CampaignId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>SI</label>
+        </rules>
+        <rules>
+            <name>No_tienecampania</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CampaignId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Enviaragradecimientoaldonante</targetReference>
+            </connector>
+            <label>NO</label>
+        </rules>
+    </decisions>
+    <description>Este proceso envia un mail automáticamente, cuando se genera nueva Donación de Unica vez. EXCEPTO que los ID de campaña sean los correpondientes a Tombola y Cena 2020: 701f30000016D7SAAU y 701f30000016D7IAAU</description>
+    <environments>Default</environments>
+    <interviewLabel>NUEVA DONACION UNICA VEZ mail agradecimiento Plantilla Lightning {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>NUEVA DONACION UNICA VEZ mail agradecimiento Lightning</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>63</locationX>
+        <locationY>44</locationY>
+        <connector>
+            <targetReference>OPP_tiene_campania</targetReference>
+        </connector>
+        <filterFormula>AND(CONTAINS({!$Record.npsp__Primary_Contact__r.Email},&apos;@&apos;) ,({!$Record.RecordTypeId}= &apos;012f3000000DxxLAAS&apos;), {!$Record.ContactId} = &apos;00331000038uFvdAAE&apos;  )</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+</Flow>

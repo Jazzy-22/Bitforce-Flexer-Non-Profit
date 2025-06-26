@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>myUniquelyDummyAssignment</name>
+        <label>myUniquelyDummyAssignment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myUniquelyDummyVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>fakeVal</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Este proceso envia un mail automáticamente cuando se genera nueva DDRR, EXCEPTO si la DDRR tiene asociada alguna de las campañas que se indican en el PB.</description>
+    <interviewLabel>NUEVA_DDRR_mail_agradecimiento_Plantilla_Lightning_V2-1_InterviewLabel</interviewLabel>
+    <label>NUEVA DDRR mail agradecimiento Plantilla Lightning V2</label>
+    <processType>Workflow</processType>
+    <startElementReference>myUniquelyDummyAssignment</startElementReference>
+    <status>InvalidDraft</status>
+    <variables>
+        <name>myUniquelyDummyVariable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
